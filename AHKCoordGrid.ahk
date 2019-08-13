@@ -95,7 +95,7 @@ KeyArray := ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n
 		    Return
 		} 
 		winc_presses = 1
-		SetTimer, TheKey, 1000
+		SetTimer, TheKey, 500
 		Return
 
 	TheKey:
