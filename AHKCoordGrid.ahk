@@ -49,19 +49,38 @@ KeyArray := ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n
 #IfWinNotActive	
 
 #IfWinExist CoordGrid
-	#IfWinNotActive CoordGrid
-		NumpadEnter::
-			Gui Show
-			Return
-	#IfWinNotActive	
+  #IfWinNotActive CoordGrid
+    NumpadEnter::
+      Winmove , CoordGrid,,0,0
+      Gui Show
+      Return
+  #IfWinNotActive	
 #IfWinExist
 
 #IfWinActive CoordGrid
-	NumpadEnter::
-		Gui Hide
-		Return
+  NumpadEnter::
+    Winmove , CoordGrid,,0,0
+    Gui Hide
+    Return
+    
+    left:: 
+    WinGetPos ,  currentposX, currentposY,,, CoordGrid
+    Winmove, CoordGrid,, % currentposX-10
+    Return
+    right:: 
+    WinGetPos ,  currentposX, currentposY,,, CoordGrid
+    Winmove, CoordGrid,, % currentposX+10
+    Return
+    Up:: 
+    WinGetPos ,  currentposX, currentposY,,, CoordGrid
+    Winmove, CoordGrid,, , % currentposY-10
+    Return
+    Down:: 
+    WinGetPos ,  currentposX, currentposY,,, CoordGrid
+    Winmove, CoordGrid,, , % currentposY+10
+    Return	
 
-	~a:: gosub, RunKey
+  ~a:: gosub, RunKey
 	~b:: gosub, RunKey
 	~c:: gosub, RunKey
 	~d:: gosub, RunKey
