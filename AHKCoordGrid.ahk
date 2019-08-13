@@ -118,7 +118,7 @@ KeyArray := ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n
 		XCoord := (XCoordToUse+0.2) * colSpacing
 		YCoord := (YCoordToUse-0.7) * rowSpacing
 
-		MouseMove, %XCoord%, %YCoord%
+		MouseMove, %XCoord%, %YCoord%, 0
 		sleep, 100
 		Gui Hide
 		Click
