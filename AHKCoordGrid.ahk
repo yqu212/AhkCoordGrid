@@ -15,7 +15,10 @@ KeyArray := ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n
 		global VerticalScale, numberOfRows, numberOfCols, GridHeight, GridWidth, rowSpacing, colSpacing, KeyArray
 
 		NumpadEnter::
-	 		; Display Coordinates 
+      ; Disable DPI scaling
+      ; See https://www.autohotkey.com/docs/commands/Gui.htm#Options
+      Gui -DPIScale
+      ; Display Coordinates 
 			rowCounter := 0
 			Loop {
 				rowYCoord := (numberOfRows - 1 - rowCounter) * rowSpacing ;
