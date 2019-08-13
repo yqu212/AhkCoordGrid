@@ -37,7 +37,7 @@ KeyArray := ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n
 
 			Gui, Color, 000115
 			Gui, Show, W%GridWidth% H%GridHeight%, CoordGrid
-			Gui -Caption +AlwaysOnTop
+			Gui -Caption +AlwaysOnTop +E0x20
 			Gui, maximize
 			WinSet, Transcolor, 000115, CoordGrid
 			
