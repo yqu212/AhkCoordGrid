@@ -20,23 +20,24 @@ KeyArray := ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n
       Gui -DPIScale
       ; Display Coordinates 
 			rowCounter := 0
-			Loop {
-				rowYCoord := (numberOfRows - 1 - rowCounter) * rowSpacing ;
-				rowYCoordAlpha := KeyArray[rowCounter+1]
-				StringUpper, rowYCoordAlpha, rowYCoordAlpha
-				colCounter := 0
-				Loop {
-					colXCoord := colCounter * colSpacing
-					colXCoordAlpha := KeyArray[colCounter+1]
-					StringUpper, colXCoordAlpha, colXCoordAlpha
-					; gui, add, edit, x%colXCoord% y%rowYCoord% ReadOnly cRed, %colXCoordAlpha%%rowYCoordAlpha%
-					gui, add, edit, x%colXCoord% y%rowYCoord%, %colXCoordAlpha%%rowYCoordAlpha%
-					colCounter := colCounter + 1
-				}    
-				Until colCounter = numberOfcols			
-				rowCounter := rowCounter + 1
-			}    
-			Until rowCounter = numberOfRows		
+      Loop {
+        rowYCoord := (numberOfRows - 1 - rowCounter) * rowSpacing ;
+        rowYCoordAlpha := KeyArray[rowCounter+1]
+        StringUpper, rowYCoordAlpha, rowYCoordAlpha
+        colCounter := 0
+        Loop {
+          colXCoord := colCounter * colSpacing
+          colXCoordAlpha := KeyArray[colCounter+1]
+          StringUpper, colXCoordAlpha, colXCoordAlpha
+          ;gui, font, bold
+          Gui, Add, Progress, w21 h21 x%colXCoord% y%rowYCoord% BackgroundFFFFFF disabled
+          gui, add, text, w21 h21 x%colXCoord% y%rowYCoord% border 0x201 readonly backgroundtrans cBlack, %colXCoordAlpha%%rowYCoordAlpha%
+          colCounter := colCounter + 1
+        }    
+        Until colCounter = numberOfcols			
+        rowCounter := rowCounter + 1
+      }    
+      Until rowCounter = numberOfRows
 
 			Gui, Color, 000115
 			Gui, Show, W%GridWidth% H%GridHeight%, CoordGrid
